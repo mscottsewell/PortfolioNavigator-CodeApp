@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "deploy": "npm run build && npx power-apps push",
+    "deploy": "npm run build && npx power-apps push && node scripts/play-url.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
