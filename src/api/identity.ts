@@ -154,5 +154,5 @@ export function getClientUrl(): string | null {
 }
 
 export function isXrmAvailable(): boolean {
-  return !trainingMode && cachedUserId !== null;
+  return !trainingMode && cachedUserId !== null && cachedUserId !== MOCK_CURRENT_USER_ID;
 }
