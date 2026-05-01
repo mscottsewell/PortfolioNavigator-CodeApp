@@ -1,0 +1,796 @@
+{
+  "name": "cai_allocation",
+  "title": "Allocation Snaphots",
+  "schema": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "x-ms-dataverse-entity": true,
+      "x-ms-dataverse-entityset": "cai_allocations",
+      "x-ms-dataverse-primary-id": "cai_allocationid",
+      "x-ms-dataverse-primary-name": "cai_name",
+      "properties": {
+        "cai_alias": {
+          "type": "string",
+          "title": "Employee Alias",
+          "x-ms-dataverse-attribute": "cai_alias",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Alias",
+          "maxLength": 100
+        },
+        "cai_allocationid": {
+          "type": "string",
+          "title": "Allocation",
+          "x-ms-dataverse-attribute": "cai_allocationid",
+          "x-ms-dataverse-type": "UniqueidentifierType",
+          "x-ms-schema-name": "cai_AllocationId",
+          "x-ms-dataverse-primary-id": true,
+          "required": true,
+          "x-ms-keyType": "primary"
+        },
+        "cai_allocationpercentage": {
+          "type": "string",
+          "title": "% Allocated",
+          "x-ms-dataverse-attribute": "cai_allocationpercentage",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "cai_AllocationPercentage",
+          "required": true
+        },
+        "cai_allocationpercentageotherareas": {
+          "type": "string",
+          "title": "% Allocated - Other Areas",
+          "x-ms-dataverse-attribute": "cai_allocationpercentageotherareas",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "cai_AllocationPercentageOtherAreas"
+        },
+        "cai_allocationperiodid": {
+          "type": "string",
+          "title": "Period",
+          "x-ms-dataverse-attribute": "cai_allocationperiodid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "cai_AllocationPeriodId",
+          "required": true
+        },
+        "cai_allocationperiodidname": {
+          "type": "string",
+          "title": "cai_allocationperiodidname",
+          "x-ms-dataverse-attribute": "cai_allocationperiodidname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_AllocationPeriodIdName",
+          "x-ms-read-only": true,
+          "maxLength": 850
+        },
+        "cai_costcenter": {
+          "type": "string",
+          "title": "Cost Center",
+          "x-ms-dataverse-attribute": "cai_costcenter",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_CostCenter",
+          "maxLength": 100
+        },
+        "cai_debug_temp": {
+          "type": "string",
+          "title": "Debug_Temp",
+          "x-ms-dataverse-attribute": "cai_debug_temp",
+          "x-ms-dataverse-type": "MemoType",
+          "x-ms-schema-name": "cai_Debug_Temp",
+          "maxLength": 2000
+        },
+        "cai_discipline": {
+          "type": "string",
+          "title": "Discipline",
+          "x-ms-dataverse-attribute": "cai_discipline",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Discipline",
+          "maxLength": 100
+        },
+        "cai_disciplinegroup": {
+          "type": "string",
+          "title": "Discipline Group",
+          "x-ms-dataverse-attribute": "cai_disciplinegroup",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_DisciplineGroup",
+          "maxLength": 100
+        },
+        "cai_employeename": {
+          "type": "string",
+          "title": "Employee Name",
+          "x-ms-dataverse-attribute": "cai_employeename",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_EmployeeName",
+          "maxLength": 100
+        },
+        "cai_functionexec": {
+          "type": "string",
+          "title": "Function Exec",
+          "x-ms-dataverse-attribute": "cai_functionexec",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_FunctionExec",
+          "maxLength": 100
+        },
+        "cai_functionexecdetail": {
+          "type": "string",
+          "title": "Function Exec Detail",
+          "x-ms-dataverse-attribute": "cai_functionexecdetail",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_FunctionExecDetail",
+          "maxLength": 100
+        },
+        "cai_functionexecsummary": {
+          "type": "string",
+          "title": "Function Exec Summary",
+          "x-ms-dataverse-attribute": "cai_functionexecsummary",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_FunctionExecSummary",
+          "maxLength": 100
+        },
+        "cai_geo_l1": {
+          "type": "string",
+          "title": "Geo L1",
+          "x-ms-dataverse-attribute": "cai_geo_l1",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Geo_L1",
+          "maxLength": 100
+        },
+        "cai_geo_l2": {
+          "type": "string",
+          "title": "Geo L2",
+          "x-ms-dataverse-attribute": "cai_geo_l2",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Geo_L2",
+          "maxLength": 100
+        },
+        "cai_geo_l3": {
+          "type": "string",
+          "title": "Geo L3",
+          "x-ms-dataverse-attribute": "cai_geo_l3",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Geo_L3",
+          "maxLength": 100
+        },
+        "cai_geo_l4": {
+          "type": "string",
+          "title": "Geo L4",
+          "x-ms-dataverse-attribute": "cai_geo_l4",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Geo_L4",
+          "maxLength": 100
+        },
+        "cai_level": {
+          "type": "string",
+          "title": "Hierarchy Level",
+          "x-ms-dataverse-attribute": "cai_level",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "cai_Level"
+        },
+        "cai_level_1": {
+          "type": "string",
+          "title": "Allocation Area",
+          "x-ms-dataverse-attribute": "cai_level_1",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Level_1",
+          "maxLength": 100
+        },
+        "cai_level_2": {
+          "type": "string",
+          "title": "Feature Team",
+          "x-ms-dataverse-attribute": "cai_level_2",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Level_2",
+          "maxLength": 100
+        },
+        "cai_level_3": {
+          "type": "string",
+          "title": "Service or Initiative",
+          "x-ms-dataverse-attribute": "cai_level_3",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Level_3",
+          "maxLength": 100
+        },
+        "cai_level_4": {
+          "type": "string",
+          "title": "Hierarchy Level 4",
+          "x-ms-dataverse-attribute": "cai_level_4",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Level_4",
+          "maxLength": 100
+        },
+        "cai_manager_systemuserid": {
+          "type": "string",
+          "title": "Manager",
+          "x-ms-dataverse-attribute": "cai_manager_systemuserid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "cai_Manager_SystemUserId"
+        },
+        "cai_manager_systemuseridname": {
+          "type": "string",
+          "title": "cai_manager_systemuseridname",
+          "x-ms-dataverse-attribute": "cai_manager_systemuseridname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Manager_SystemUserIdName",
+          "x-ms-read-only": true,
+          "maxLength": 200
+        },
+        "cai_manager_systemuseridyominame": {
+          "type": "string",
+          "title": "cai_manager_systemuseridyominame",
+          "x-ms-dataverse-attribute": "cai_manager_systemuseridyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Manager_SystemUserIdYomiName",
+          "x-ms-read-only": true,
+          "maxLength": 200
+        },
+        "cai_managerapprovalstatus": {
+          "type": "string",
+          "title": "Manager Approval Status",
+          "x-ms-dataverse-attribute": "cai_managerapprovalstatus",
+          "x-ms-dataverse-type": "PicklistType",
+          "x-ms-schema-name": "cai_ManagerApprovalStatus",
+          "enum": [
+            "Pending Review",
+            "Review Complete",
+            "Review Complete - Removed"
+          ],
+          "x-ms-enum-values": [
+            100000000,
+            100000001,
+            100000002
+          ],
+          "Color": [
+            null,
+            null,
+            null
+          ],
+          "x-ms-optionsetmetadataid": "11252154-1c44-4acf-a6c8-4258825a3c4d",
+          "x-ms-isGlobal": true,
+          "x-ms-optionsetdisplayname": "Manager Approval Status",
+          "x-ms-optionSetType": "Picklist"
+        },
+        "cai_managerapprovalstatusname": {
+          "type": "string",
+          "title": "cai_managerapprovalstatusname",
+          "x-ms-dataverse-attribute": "cai_managerapprovalstatusname",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "cai_managerapprovalstatusName",
+          "x-ms-read-only": true
+        },
+        "cai_managerreviewcompletedbyid": {
+          "type": "string",
+          "title": "Manager Review Completed By",
+          "x-ms-dataverse-attribute": "cai_managerreviewcompletedbyid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "cai_ManagerReviewCompletedById"
+        },
+        "cai_managerreviewcompletedbyidname": {
+          "type": "string",
+          "title": "cai_managerreviewcompletedbyidname",
+          "x-ms-dataverse-attribute": "cai_managerreviewcompletedbyidname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_ManagerReviewCompletedByIdName",
+          "x-ms-read-only": true,
+          "maxLength": 200
+        },
+        "cai_managerreviewcompletedbyidyominame": {
+          "type": "string",
+          "title": "cai_managerreviewcompletedbyidyominame",
+          "x-ms-dataverse-attribute": "cai_managerreviewcompletedbyidyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_ManagerReviewCompletedByIdYomiName",
+          "x-ms-read-only": true,
+          "maxLength": 200
+        },
+        "cai_managerreviewdate": {
+          "type": "string",
+          "title": "Manager Review Date",
+          "x-ms-dataverse-attribute": "cai_managerreviewdate",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "cai_ManagerReviewDate"
+        },
+        "cai_name": {
+          "type": "string",
+          "title": "Allocation Snapshot Name",
+          "x-ms-dataverse-attribute": "cai_name",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_Name",
+          "x-ms-dataverse-primary-name": true,
+          "required": true,
+          "maxLength": 850
+        },
+        "cai_orgexec": {
+          "type": "string",
+          "title": "Org Exec",
+          "x-ms-dataverse-attribute": "cai_orgexec",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_OrgExec",
+          "maxLength": 100
+        },
+        "cai_orgexecdetail": {
+          "type": "string",
+          "title": "Org Exec Detail",
+          "x-ms-dataverse-attribute": "cai_orgexecdetail",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_OrgExecDetail",
+          "maxLength": 100
+        },
+        "cai_orgexecsummary": {
+          "type": "string",
+          "title": "Org Exec Summary",
+          "x-ms-dataverse-attribute": "cai_orgexecsummary",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_OrgExecSummary",
+          "maxLength": 100
+        },
+        "cai_position_management_status": {
+          "type": "string",
+          "title": "Position Management Status",
+          "x-ms-dataverse-attribute": "cai_position_management_status",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_position_management_status",
+          "maxLength": 100
+        },
+        "cai_position_subtype": {
+          "type": "string",
+          "title": "Position Subtype",
+          "x-ms-dataverse-attribute": "cai_position_subtype",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_position_subtype",
+          "maxLength": 100
+        },
+        "cai_position_type": {
+          "type": "string",
+          "title": "Position Type",
+          "x-ms-dataverse-attribute": "cai_position_type",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_position_type",
+          "maxLength": 100
+        },
+        "cai_positionstatus": {
+          "type": "string",
+          "title": "Position Status",
+          "x-ms-dataverse-attribute": "cai_positionstatus",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_PositionStatus",
+          "maxLength": 100
+        },
+        "cai_reports_to_manager": {
+          "type": "string",
+          "title": "Reports To Manager",
+          "x-ms-dataverse-attribute": "cai_reports_to_manager",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_reports_to_manager",
+          "maxLength": 100
+        },
+        "cai_resourceid": {
+          "type": "string",
+          "title": "Resource",
+          "x-ms-dataverse-attribute": "cai_resourceid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "cai_Resourceid",
+          "required": true
+        },
+        "cai_resourceidname": {
+          "type": "string",
+          "title": "cai_resourceidname",
+          "x-ms-dataverse-attribute": "cai_resourceidname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_ResourceidName",
+          "x-ms-read-only": true,
+          "maxLength": 850
+        },
+        "cai_sec_functional_area": {
+          "type": "string",
+          "title": "SEC Func Area",
+          "x-ms-dataverse-attribute": "cai_sec_functional_area",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_sec_functional_area",
+          "maxLength": 100
+        },
+        "cai_serviceorinitiativeid": {
+          "type": "string",
+          "title": "Service or Initiative (Link)",
+          "x-ms-dataverse-attribute": "cai_serviceorinitiativeid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "cai_ServiceorInitiativeId"
+        },
+        "cai_serviceorinitiativeidname": {
+          "type": "string",
+          "title": "cai_serviceorinitiativeidname",
+          "x-ms-dataverse-attribute": "cai_serviceorinitiativeidname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "cai_ServiceorInitiativeIdName",
+          "x-ms-read-only": true,
+          "maxLength": 850
+        },
+        "cai_totalallocatedperuserperperiod": {
+          "type": "string",
+          "title": "% Allocated Total, for this user, in this Period",
+          "x-ms-dataverse-attribute": "cai_totalallocatedperuserperperiod",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "cai_TotalAllocatedPerUserPerPeriod"
+        },
+        "createdby": {
+          "type": "string",
+          "title": "Created By",
+          "x-ms-dataverse-attribute": "createdby",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "CreatedBy",
+          "x-ms-read-only": true
+        },
+        "createdbyname": {
+          "type": "string",
+          "title": "createdbyname",
+          "x-ms-dataverse-attribute": "createdbyname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "CreatedByName",
+          "x-ms-read-only": true,
+          "maxLength": 100
+        },
+        "createdbyyominame": {
+          "type": "string",
+          "title": "createdbyyominame",
+          "x-ms-dataverse-attribute": "createdbyyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "CreatedByYomiName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "createdon": {
+          "type": "string",
+          "title": "Created On",
+          "x-ms-dataverse-attribute": "createdon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "CreatedOn",
+          "x-ms-read-only": true
+        },
+        "createdonbehalfby": {
+          "type": "string",
+          "title": "Created By (Delegate)",
+          "x-ms-dataverse-attribute": "createdonbehalfby",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "CreatedOnBehalfBy",
+          "x-ms-read-only": true
+        },
+        "createdonbehalfbyname": {
+          "type": "string",
+          "title": "createdonbehalfbyname",
+          "x-ms-dataverse-attribute": "createdonbehalfbyname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "CreatedOnBehalfByName",
+          "x-ms-read-only": true,
+          "maxLength": 100
+        },
+        "createdonbehalfbyyominame": {
+          "type": "string",
+          "title": "createdonbehalfbyyominame",
+          "x-ms-dataverse-attribute": "createdonbehalfbyyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "CreatedOnBehalfByYomiName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "importsequencenumber": {
+          "type": "string",
+          "title": "Import Sequence Number",
+          "x-ms-dataverse-attribute": "importsequencenumber",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "ImportSequenceNumber"
+        },
+        "modifiedby": {
+          "type": "string",
+          "title": "Modified By",
+          "x-ms-dataverse-attribute": "modifiedby",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "ModifiedBy",
+          "x-ms-read-only": true
+        },
+        "modifiedbyname": {
+          "type": "string",
+          "title": "modifiedbyname",
+          "x-ms-dataverse-attribute": "modifiedbyname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "ModifiedByName",
+          "x-ms-read-only": true,
+          "maxLength": 100
+        },
+        "modifiedbyyominame": {
+          "type": "string",
+          "title": "modifiedbyyominame",
+          "x-ms-dataverse-attribute": "modifiedbyyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "ModifiedByYomiName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "modifiedon": {
+          "type": "string",
+          "title": "Modified On",
+          "x-ms-dataverse-attribute": "modifiedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "ModifiedOn",
+          "x-ms-read-only": true
+        },
+        "modifiedonbehalfby": {
+          "type": "string",
+          "title": "Modified By (Delegate)",
+          "x-ms-dataverse-attribute": "modifiedonbehalfby",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "ModifiedOnBehalfBy",
+          "x-ms-read-only": true
+        },
+        "modifiedonbehalfbyname": {
+          "type": "string",
+          "title": "modifiedonbehalfbyname",
+          "x-ms-dataverse-attribute": "modifiedonbehalfbyname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "ModifiedOnBehalfByName",
+          "x-ms-read-only": true,
+          "maxLength": 100
+        },
+        "modifiedonbehalfbyyominame": {
+          "type": "string",
+          "title": "modifiedonbehalfbyyominame",
+          "x-ms-dataverse-attribute": "modifiedonbehalfbyyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "ModifiedOnBehalfByYomiName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "overriddencreatedon": {
+          "type": "string",
+          "title": "Record Created On",
+          "x-ms-dataverse-attribute": "overriddencreatedon",
+          "x-ms-dataverse-type": "DateTimeType",
+          "x-ms-schema-name": "OverriddenCreatedOn"
+        },
+        "ownerid": {
+          "type": "string",
+          "title": "Owner",
+          "x-ms-dataverse-attribute": "ownerid",
+          "x-ms-dataverse-type": "OwnerType",
+          "x-ms-schema-name": "OwnerId",
+          "required": true
+        },
+        "owneridname": {
+          "type": "string",
+          "title": "owneridname",
+          "x-ms-dataverse-attribute": "owneridname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "OwnerIdName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "owneridtype": {
+          "type": "string",
+          "title": "owneridtype",
+          "x-ms-dataverse-attribute": "owneridtype",
+          "x-ms-dataverse-type": "EntityNameType",
+          "x-ms-schema-name": "OwnerIdType",
+          "required": true
+        },
+        "owneridyominame": {
+          "type": "string",
+          "title": "owneridyominame",
+          "x-ms-dataverse-attribute": "owneridyominame",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "OwnerIdYomiName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "owningbusinessunit": {
+          "type": "string",
+          "title": "Owning Business Unit",
+          "x-ms-dataverse-attribute": "owningbusinessunit",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "OwningBusinessUnit",
+          "x-ms-read-only": true
+        },
+        "owningbusinessunitname": {
+          "type": "string",
+          "title": "owningbusinessunitname",
+          "x-ms-dataverse-attribute": "owningbusinessunitname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "OwningBusinessUnitName",
+          "x-ms-read-only": true,
+          "required": true,
+          "maxLength": 100
+        },
+        "owningteam": {
+          "type": "string",
+          "title": "Owning Team",
+          "x-ms-dataverse-attribute": "owningteam",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "OwningTeam",
+          "x-ms-read-only": true
+        },
+        "owninguser": {
+          "type": "string",
+          "title": "Owning User",
+          "x-ms-dataverse-attribute": "owninguser",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "OwningUser",
+          "x-ms-read-only": true
+        },
+        "statecode": {
+          "type": "string",
+          "title": "Status",
+          "x-ms-dataverse-attribute": "statecode",
+          "x-ms-dataverse-type": "StateType",
+          "x-ms-schema-name": "statecode",
+          "required": true,
+          "enum": [
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-enum-values": [
+            0,
+            1
+          ],
+          "Color": [
+            null,
+            null
+          ],
+          "x-ms-optionsetmetadataid": "6057d139-cb41-f111-88b4-7ced8d3d5f67",
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Status",
+          "x-ms-optionSetType": "State"
+        },
+        "statecodename": {
+          "type": "string",
+          "title": "statecodename",
+          "x-ms-dataverse-attribute": "statecodename",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "statecodeName",
+          "x-ms-read-only": true
+        },
+        "statuscode": {
+          "type": "string",
+          "title": "Status Reason",
+          "x-ms-dataverse-attribute": "statuscode",
+          "x-ms-dataverse-type": "StatusType",
+          "x-ms-schema-name": "statuscode",
+          "enum": [
+            "Active",
+            "Inactive"
+          ],
+          "x-ms-enum-values": [
+            1,
+            2
+          ],
+          "Color": [
+            null,
+            null
+          ],
+          "x-ms-optionsetmetadataid": "6c57d139-cb41-f111-88b4-7ced8d3d5f67",
+          "x-ms-isGlobal": false,
+          "x-ms-optionsetdisplayname": "Status Reason",
+          "x-ms-optionSetType": "Status"
+        },
+        "statuscodename": {
+          "type": "string",
+          "title": "statuscodename",
+          "x-ms-dataverse-attribute": "statuscodename",
+          "x-ms-dataverse-type": "VirtualType",
+          "x-ms-schema-name": "statuscodeName",
+          "x-ms-read-only": true
+        },
+        "timezoneruleversionnumber": {
+          "type": "string",
+          "title": "Time Zone Rule Version Number",
+          "x-ms-dataverse-attribute": "timezoneruleversionnumber",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "TimeZoneRuleVersionNumber"
+        },
+        "tov2_positionid": {
+          "type": "string",
+          "title": "Position",
+          "x-ms-dataverse-attribute": "tov2_positionid",
+          "x-ms-dataverse-type": "LookupType",
+          "x-ms-schema-name": "tov2_PositionId"
+        },
+        "tov2_positionidname": {
+          "type": "string",
+          "title": "tov2_positionidname",
+          "x-ms-dataverse-attribute": "tov2_positionidname",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_PositionIdName",
+          "x-ms-read-only": true,
+          "maxLength": 850
+        },
+        "tov2_reports_to_level1": {
+          "type": "string",
+          "title": "Reports To L1",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level1",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level1",
+          "maxLength": 100
+        },
+        "tov2_reports_to_level2": {
+          "type": "string",
+          "title": "Reports To L2",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level2",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level2",
+          "maxLength": 100
+        },
+        "tov2_reports_to_level3": {
+          "type": "string",
+          "title": "Reports To L3",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level3",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level3",
+          "maxLength": 100
+        },
+        "tov2_reports_to_level4": {
+          "type": "string",
+          "title": "Reports To L4",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level4",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level4",
+          "maxLength": 100
+        },
+        "tov2_reports_to_level5": {
+          "type": "string",
+          "title": "Reports To L5",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level5",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level5",
+          "maxLength": 100
+        },
+        "tov2_reports_to_level6": {
+          "type": "string",
+          "title": "Reports To L6",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level6",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level6",
+          "maxLength": 100
+        },
+        "tov2_reports_to_level7": {
+          "type": "string",
+          "title": "Reports To L7",
+          "x-ms-dataverse-attribute": "tov2_reports_to_level7",
+          "x-ms-dataverse-type": "StringType",
+          "x-ms-schema-name": "tov2_reports_to_level7",
+          "maxLength": 100
+        },
+        "utcconversiontimezonecode": {
+          "type": "string",
+          "title": "UTC Conversion Time Zone Code",
+          "x-ms-dataverse-attribute": "utcconversiontimezonecode",
+          "x-ms-dataverse-type": "IntegerType",
+          "x-ms-schema-name": "UTCConversionTimeZoneCode"
+        },
+        "versionnumber": {
+          "type": "string",
+          "title": "Version Number",
+          "x-ms-dataverse-attribute": "versionnumber",
+          "x-ms-dataverse-type": "BigIntType",
+          "x-ms-schema-name": "VersionNumber",
+          "x-ms-read-only": true
+        }
+      },
+      "required": [
+        "cai_allocationid",
+        "cai_allocationpercentage",
+        "cai_allocationperiodid",
+        "cai_name",
+        "cai_resourceid",
+        "createdbyyominame",
+        "createdonbehalfbyyominame",
+        "modifiedbyyominame",
+        "modifiedonbehalfbyyominame",
+        "ownerid",
+        "owneridname",
+        "owneridtype",
+        "owneridyominame",
+        "owningbusinessunitname",
+        "statecode"
+      ]
+    }
+  }
+}
