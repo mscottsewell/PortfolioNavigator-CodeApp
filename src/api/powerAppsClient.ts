@@ -8,6 +8,24 @@ const MAX_RETRIES = 3;
 const MAX_PAGE_COUNT = 20;
 export const FILTER_CHUNK_SIZE = 50;
 
+// The SDK identifies data sources by entity set name (plural), not logical name.
+const ENTITY_SET_NAMES: Record<string, string> = {
+  cai_allocation: 'cai_allocations',
+  cai_allocationperiod: 'cai_allocationperiods',
+  cai_area: 'cai_areas',
+  cai_assignment: 'cai_assignments',
+  cai_delegation: 'cai_delegations',
+  cai_managersummary: 'cai_managersummaries',
+  cai_resource: 'cai_resources',
+  cai_serviceinitiativesummary: 'cai_serviceinitiativesummaries',
+  cai_serviceorinitiative: 'cai_serviceorinitiatives',
+  systemuser: 'systemusers',
+};
+
+function toEntitySetName(logicalName: string): string {
+  return ENTITY_SET_NAMES[logicalName] ?? logicalName;
+}
+
 export interface QueryOptions {
   filter?: string;
   select?: string[];
@@ -159,7 +177,7 @@ export async function retrieveMultiple<T>(
 
   do {
     const result = await client.retrieveMultipleRecordsAsync<Record<string, unknown>>(
-      entityLogicalName,
+      toEntitySetName(entityLogicalName),
       buildRetrieveRequest(normalizedOptions, skipToken),
     );
 
@@ -190,7 +208,7 @@ export async function createRecord(
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt += 1) {
     try {
-      const result = await client.createRecordAsync<Record<string, unknown>, unknown>(entityLogicalName, data);
+      const result = await client.createRecordAsync<Record<string, unknown>, unknown>(toEntitySetName(entityLogicalName), data);
       if (result.success === false) {
         throw new Error(result.error?.message ?? `Failed to create ${entityLogicalName}`);
       }
@@ -217,7 +235,7 @@ export async function updateRecord(
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt += 1) {
     try {
-      const result = await client.updateRecordAsync<Record<string, unknown>, unknown>(entityLogicalName, id, data);
+      const result = await client.updateRecordAsync<Record<string, unknown>, unknown>(toEntitySetName(entityLogicalName), id, data);
       ensureSucceeded(result, `Failed to update ${entityLogicalName}(${id})`);
       return;
     } catch (error: unknown) {
@@ -241,7 +259,7 @@ export async function deleteRecord(
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt += 1) {
     try {
-      const result = await client.deleteRecordAsync(entityLogicalName, id);
+      const result = await client.deleteRecordAsync(toEntitySetName(entityLogicalName), id);
       ensureSucceeded(result, `Failed to delete ${entityLogicalName}(${id})`);
       return;
     } catch (error: unknown) {

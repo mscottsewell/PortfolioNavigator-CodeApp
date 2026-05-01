@@ -42,6 +42,7 @@ PortfolioNavigator-CodeApp is a standalone Power Apps Code App version of Portfo
    pac code add-data-source -a dataverse -t cai_allocationperiod
    pac code add-data-source -a dataverse -t cai_area
    pac code add-data-source -a dataverse -t cai_assignment
+   pac code add-data-source -a dataverse -t cai_delegation
    pac code add-data-source -a dataverse -t cai_resource
    pac code add-data-source -a dataverse -t cai_serviceorinitiative
    pac code add-data-source -a dataverse -t systemuser
