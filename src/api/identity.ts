@@ -111,21 +111,29 @@ export async function resolveCurrentUserId(): Promise<string> {
     return hostUserId;
   }
 
+  // Not in Power Apps mode — return mock ID
+  if (Object.keys(dataSourcesInfo as Record<string, unknown>).length === 0) {
+    return MOCK_CURRENT_USER_ID;
+  }
+
+  // In Code App mode: use WhoAmI via the SDK
   try {
-    const client = await getIdentityClient();
+    const { getClient } = await import('@microsoft/power-apps/data');
+    const client = getClient(dataSourcesInfo) as unknown as {
+      executeAsync?: <T>(req: unknown) => Promise<IOperationResult<T>>;
+    };
     if (typeof client.executeAsync === 'function') {
-      const result = await client.executeAsync<{ UserId?: string }>({
+      const result = await client.executeAsync<{ UserId?: string; userId?: string }>({
         dataverseRequest: {
-          action: 'WhoAmI',
+          action: 'customapi',
+          parameters: { operationName: 'WhoAmI', tableName: 'whoami' },
         },
       });
-      const userId = result.data?.UserId;
-      if (userId) {
-        return normalizeGuid(userId);
-      }
+      const userId = result.data?.UserId ?? result.data?.userId;
+      if (userId) return normalizeGuid(userId);
     }
   } catch (error) {
-    console.warn('[PortfolioNav] WhoAmI failed, using mock user ID.', error);
+    console.warn('[PortfolioNav] WhoAmI failed, userId will be resolved lazily.', error);
   }
 
   return MOCK_CURRENT_USER_ID;
@@ -154,5 +162,8 @@ export function getClientUrl(): string | null {
 }
 
 export function isXrmAvailable(): boolean {
-  return !trainingMode && cachedUserId !== null && cachedUserId !== MOCK_CURRENT_USER_ID;
+  if (trainingMode) return false;
+  // Real mode when dataSourcesInfo has been populated by pac code add-data-source.
+  // Stub file exports an empty object; generated file has entity entries.
+  return Object.keys(dataSourcesInfo as Record<string, unknown>).length > 0;
 }
