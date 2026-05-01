@@ -16,14 +16,6 @@ interface IOperationResult<T> {
   } | null;
 }
 
-interface IIdentityClient {
-  executeAsync?<T>(request: unknown): Promise<IOperationResult<T>>;
-}
-
-async function getIdentityClient(): Promise<IIdentityClient> {
-  const { getClient } = await import('@microsoft/power-apps/data');
-  return getClient(dataSourcesInfo) as unknown as IIdentityClient;
-}
 
 function normalizeGuid(value: string): string {
   return value.replace(/[{}]/g, '').toLowerCase();
