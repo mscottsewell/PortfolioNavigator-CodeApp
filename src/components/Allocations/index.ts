@@ -1,0 +1,1 @@
+export { AllocationsTab } from './AllocationsTab';
