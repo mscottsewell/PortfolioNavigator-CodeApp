@@ -35,18 +35,18 @@ PortfolioNavigator-CodeApp is a standalone Power Apps Code App version of Portfo
 
    This populates local Code App configuration, including `power.config.json`.
 
-3. Add Dataverse data sources with PAC CLI:
+3. Add Dataverse data sources with PAC CLI (`--apiId shared_commondataserviceforapps` is the Dataverse connector ID):
 
    ```powershell
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_allocation
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_allocationperiod
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_area
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_assignment
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_resource
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_serviceorinitiative
-   pac code add-data-source --environment "portfolioshapingdev" --entity systemuser
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_managersummary
-   pac code add-data-source --environment "portfolioshapingdev" --entity cai_serviceinitiativesummary
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_allocation
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_allocationperiod
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_area
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_assignment
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_resource
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_serviceorinitiative
+   pac code add-data-source --apiId shared_commondataserviceforapps --table systemuser
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_managersummary
+   pac code add-data-source --apiId shared_commondataserviceforapps --table cai_serviceinitiativesummary
    ```
 
 4. Re-run initialization if required by the tooling:
